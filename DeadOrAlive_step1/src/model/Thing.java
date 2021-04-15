@@ -18,8 +18,8 @@ public abstract class Thing {
 	}
 
 	public Thing(double velocity, int score) {
-		this.xPos = (int) (Math.random() * DeadOrAliveController.WIDTH);
-		this.yPos = DeadOrAliveController.HEIGHT;
+		this.xPos = (int) (Math.random() * Board.WIDTH);
+		this.yPos = Board.HEIGHT;
 		this.velocity = velocity;
 		this.score = score;
 	}

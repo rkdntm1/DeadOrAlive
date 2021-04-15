@@ -14,14 +14,16 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import controll.DeadOrAliveController;
+import model.Board;
 
 public class PanelOfBoard extends JPanel {
 	private BufferedImage appleImg, bombImg;
 	private int x, y;
 	private Timer timer;
+	private Board board;
 
-	public PanelOfBoard() {
+	public PanelOfBoard(Board board) {
 		setBackground(Color.GREEN); // 뒷배경색 설정
-		setPreferredSize(new Dimension(DeadOrAliveController.WIDTH, DeadOrAliveController.HEIGHT)); // 패널의 선호 사이즈 생성
+		setPreferredSize(new Dimension(Board.WIDTH, Board.HEIGHT)); // 패널의 선호 사이즈 생성
 	}
 }

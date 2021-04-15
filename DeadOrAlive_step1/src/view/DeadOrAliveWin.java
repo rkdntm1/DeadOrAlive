@@ -1,24 +1,22 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import controll.DeadOrAliveController;
+import model.Board;
 
 public class DeadOrAliveWin extends JFrame {
 	private BufferedImage image;
-	public DeadOrAliveWin() {
+	private Board board;
+	
+	public DeadOrAliveWin(Board board) {
 		this.setTitle("DeadOrAlive");
-		this.setSize(DeadOrAliveController.WIDTH, DeadOrAliveController.HEIGHT);
+		this.setSize(Board.WIDTH, Board.HEIGHT);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		// 상단
 		JPanel pnl4Score = new JPanel(new GridLayout(1, 0));
@@ -27,7 +25,7 @@ public class DeadOrAliveWin extends JFrame {
 		this.add(pnl4Score, BorderLayout.NORTH);
 
 		// 중단
-		this.add(new PanelOfBoard(), BorderLayout.CENTER);
+		this.add(new PanelOfBoard(board), BorderLayout.CENTER);
 
 		this.setVisible(true);
 	}
