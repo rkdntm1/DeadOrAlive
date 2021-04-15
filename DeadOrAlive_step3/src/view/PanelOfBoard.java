@@ -22,7 +22,7 @@ public class PanelOfBoard extends JPanel {
 	private static final int START_OF_APPLE_BOMB = (int) (Math.random() * Board.WIDTH);
 	private Board board;
 	// 캐릭터 아이콘 만들어주기
-	ImageIcon playerIcon = new ImageIcon("Character.jpg");
+	ImageIcon playerIcon = new ImageIcon("Character.png");
 	JLabel lbl4Player = new JLabel();
 	private BufferedImage image;
 	private BufferedImage image2;
