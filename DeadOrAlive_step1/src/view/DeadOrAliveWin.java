@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 import model.Board;
 
 public class DeadOrAliveWin extends JFrame {
-	private BufferedImage image;
 	private Board board;
 	
 	public DeadOrAliveWin(Board board) {

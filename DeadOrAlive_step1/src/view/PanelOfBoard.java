@@ -17,9 +17,6 @@ import controll.DeadOrAliveController;
 import model.Board;
 
 public class PanelOfBoard extends JPanel {
-	private BufferedImage appleImg, bombImg;
-	private int x, y;
-	private Timer timer;
 	private Board board;
 
 	public PanelOfBoard(Board board) {

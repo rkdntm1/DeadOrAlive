@@ -10,5 +10,4 @@ public class Player extends Thing {
 	public Player(int xPos, double velocity, int score) {
 		super(xPos, 0,  velocity, score);
 	}
-	
 }
