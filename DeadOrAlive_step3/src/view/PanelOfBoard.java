@@ -58,12 +58,14 @@ public class PanelOfBoard extends JPanel {
 		});
 		this.requestFocus();
 		this.setFocusable(true);
-
+		
+		// 사과와 폭탄을 쓰레드로 만들어서 처리하기 
 		new Thread(new MyThread("Apple.png", 200, 0)).start();
 		new Thread(new MyThread("Bomb.png", 400, 0)).start();
 	}
 	
 	public class MyThread implements Runnable {
+		// x좌표 y좌표
 		private int x, y;
 		private JLabel lbl;
 		
@@ -82,11 +84,13 @@ public class PanelOfBoard extends JPanel {
 				y += Board.SPEED_BOMB_APPLE;				
 				lbl.setBounds(x, y, 200, 200);
 				if (y > Board.HEIGHT) {
+					// 높이 값을 벗어나면 y좌표 초기화, x좌표는 랜덤하게 설정
 					y = 0;
 					x = (int) (Math.random() * (Board.WIDTH - 100));
 				}
 				repaint();
 				try {
+					//속도 조절
 					Thread.sleep(Board.SPEED_BOMB_APPLE);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
