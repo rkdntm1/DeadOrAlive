@@ -11,6 +11,7 @@ public class DeadOrAliveController {
 	private static final int BASIC_SCORE = 10;
 	private static final int APPLE_SCORE = 3;
 	private static final int BOMB_SCORE = -5;
+	
 	private Board board; 
 
 	public DeadOrAliveController() {
