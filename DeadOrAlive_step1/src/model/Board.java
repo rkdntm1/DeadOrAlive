@@ -8,7 +8,7 @@ public class Board {
 	public static final int WIDTH = 1000;
 	public static final int HEIGHT = (int) (WIDTH / 1.6);
 	// 캐릭터 기본 위치
-	public static final int XPOSOFCHARACTER = WIDTH / 2;
+	public static final int START_X_POS_OF_PLAYER = WIDTH / 2;	//상수 이름은 단어별로 _ 로 구분한다
 	// 한 면을 걸을 때 걸리는 총 시간(초)
 	private static final int TIME = 80;
 	// 면의 길이와 시간으로 산출한 속도.
