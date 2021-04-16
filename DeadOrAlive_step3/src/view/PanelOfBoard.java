@@ -57,10 +57,16 @@ public class PanelOfBoard extends JPanel {
 		this.addKeyListener(new KeyAdapter() {
 			public void keyPressed(KeyEvent e) {
 				switch (e.getKeyCode()) {
-				case KeyEvent.VK_LEFT: // 좌
+				case KeyEvent.VK_LEFT:
+					if (lbl4Player.getX() < 0) {
+						lbl4Player.setLocation(lbl4Player.getX() + 20, lbl4Player.getY());
+					}
 					lbl4Player.setLocation(lbl4Player.getX() - Board.SPEED_PLAYER, lbl4Player.getY());
 					break;
-				case KeyEvent.VK_RIGHT: // 우
+				case KeyEvent.VK_RIGHT:
+					if (lbl4Player.getX() > Board.WIDTH - lbl4Player.getWidth() + 20) {
+						lbl4Player.setLocation(lbl4Player.getX() - 20, lbl4Player.getY());
+					}
 					lbl4Player.setLocation(lbl4Player.getX() + Board.SPEED_PLAYER, lbl4Player.getY());
 					break;
 				}
