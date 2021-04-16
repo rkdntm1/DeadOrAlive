@@ -35,7 +35,7 @@ public class PanelOfBoard extends JPanel {
 
 		lbl4Player.setIcon(playerIcon); // 아이콘 설치
 		lbl4Player.setLocation(Board.WIDTH / 2 - (playerIcon.getIconWidth() / 2),
-				Board.HEIGHT - playerIcon.getIconHeight()); // 아이콘 초기 위치 설정 (맨아래 중앙)
+				Board.HEIGHT - playerIcon.getIconHeight() - 60); // 아이콘 초기 위치 설정 (맨아래 중앙)
 		System.out.println("Player = " + lbl4Player.getX());
 		lbl4Player.setSize(200, 150); // 아이콘 size 정의
 
@@ -47,13 +47,11 @@ public class PanelOfBoard extends JPanel {
 				switch (e.getKeyCode()) {
 				case KeyEvent.VK_LEFT:
 					lbl4Player.setLocation(lbl4Player.getX() - Board.SPEED_CHARACTER, lbl4Player.getY());
-					System.out.println("Player = " + lbl4Player.getX());
 					break;
 				case KeyEvent.VK_RIGHT:
 					lbl4Player.setLocation(lbl4Player.getX() + Board.SPEED_CHARACTER, lbl4Player.getY());
 					break;
 				}
-				lbl4Player.setLocation(lbl4Player.getX(), lbl4Player.getY());
 			}
 		});
 		this.requestFocus();
@@ -82,8 +80,8 @@ public class PanelOfBoard extends JPanel {
 		public void run() {
 			while(true) {
 				y += Board.SPEED_BOMB_APPLE;				
-				lbl.setBounds(x, y, 200, 200);
-				if (y > Board.HEIGHT) {
+				lbl.setBounds(x, y, 100, 100);
+				if (y > Board.HEIGHT - lbl.getHeight()) {
 					// 높이 값을 벗어나면 y좌표 초기화, x좌표는 랜덤하게 설정
 					y = 0;
 					x = (int) (Math.random() * (Board.WIDTH - 100));
