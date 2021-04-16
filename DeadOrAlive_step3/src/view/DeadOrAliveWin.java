@@ -1,6 +1,8 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.JFrame;
@@ -18,8 +20,10 @@ public class DeadOrAliveWin extends JFrame {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		// 상단 - 점수판 왼쪽상단 배치
-		JPanel pnl4Score = new JPanel(new GridLayout(1, 0));
+		JPanel pnl4Score = new JPanel(new GridLayout(0, 2));
 		JLabel lbl4Score = new JLabel("점수판");
+		Font s = new Font("Serif", Font.ITALIC, 30);
+		lbl4Score.setFont(s);
 		pnl4Score.add(lbl4Score);
 		this.add(pnl4Score, BorderLayout.NORTH);
 
