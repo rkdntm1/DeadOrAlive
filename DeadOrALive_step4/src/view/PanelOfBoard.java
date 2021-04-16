@@ -69,12 +69,19 @@ public class PanelOfBoard extends JPanel {
 		
 		// 좌우 움직일 수 있도록 keyListener 장착
 		this.addKeyListener(new KeyAdapter() {
+			
 			public void keyPressed(KeyEvent e) {
 				switch (e.getKeyCode()) {
-				case KeyEvent.VK_LEFT: // 좌
+				case KeyEvent.VK_LEFT:
+					if (lbl4Player.getX() < 0) {
+						lbl4Player.setLocation(lbl4Player.getX() + 20, lbl4Player.getY());
+					}
 					lbl4Player.setLocation(lbl4Player.getX() - Board.SPEED_PLAYER, lbl4Player.getY());
 					break;
-				case KeyEvent.VK_RIGHT: // 우
+				case KeyEvent.VK_RIGHT:
+					if (lbl4Player.getX() > Board.WIDTH - lbl4Player.getWidth() + 20) {
+						lbl4Player.setLocation(lbl4Player.getX() - 20, lbl4Player.getY());
+					}
 					lbl4Player.setLocation(lbl4Player.getX() + Board.SPEED_PLAYER, lbl4Player.getY());
 					break;
 				}
@@ -87,6 +94,7 @@ public class PanelOfBoard extends JPanel {
 		timer = new Timer(30, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				timer.start();
 				// 사과가 범위 벗어났을 경우 랜덤한 x좌표에서 다시 생성
 				if (lbl4Apple.getY() >= Board.HEIGHT) {
 					lbl4Apple.setLocation((int) ((Board.WIDTH - lbl4Apple.getWidth()) * Math.random()), 0);
@@ -120,9 +128,8 @@ public class PanelOfBoard extends JPanel {
 				} else
 					lbl4Bomb.setLocation(lbl4Bomb.getX(), lbl4Bomb.getY() + 10);
 			}
-		});
+		});		
 		timer.start();
-
 	}
 
 	/**
