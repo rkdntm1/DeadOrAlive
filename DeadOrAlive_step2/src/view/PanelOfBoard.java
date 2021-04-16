@@ -13,7 +13,7 @@ import model.Board;
 public class PanelOfBoard extends JPanel {
 	private Board board;
 	// 캐릭터 아이콘 만들어주기
-	ImageIcon playerIcon = new ImageIcon("Character.jpg");
+	ImageIcon playerIcon = new ImageIcon("Character.png");
 	JLabel lbl4Player = new JLabel();
 
 	PanelOfBoard(Board board) {
@@ -21,25 +21,31 @@ public class PanelOfBoard extends JPanel {
 		this.setLayout(null); // 어디든 만들어지도록 레이아웃 null
 
 		lbl4Player.setIcon(playerIcon); // 아이콘 설치
-		lbl4Player.setLocation(Board.WIDTH / 2 - (playerIcon.getIconWidth() / 2), Board.HEIGHT - playerIcon.getIconHeight()); // 아이콘 초기 위치 설정 (맨아래 중앙)
+		lbl4Player.setLocation(Board.WIDTH / 2 - (playerIcon.getIconWidth() / 2)
+				, Board.HEIGHT - playerIcon.getIconHeight() - 50); // 아이콘 초기 위치 설정 (맨아래 중앙)
 		System.out.println("Player = " + lbl4Player.getX());
 		lbl4Player.setSize(200, 150); // 아이콘 size 정의
 
 		this.add(lbl4Player);
 		
-		// 좌우 움직일 수 있도록 keyListener 장착 => 안움직임 why?
+		// 좌우 움직일 수 있도록 keyListener 장착  
 		this.addKeyListener(new KeyAdapter() {
 			public void keyPressed(KeyEvent e){
 				switch (e.getKeyCode()) {
 				case KeyEvent.VK_LEFT:
+					if (lbl4Player.getX() < -(lbl4Player.getWidth() / 7)) {
+						lbl4Player.setLocation(lbl4Player.getX() + 20, lbl4Player.getY());
+					}
 					lbl4Player.setLocation(lbl4Player.getX() - Board.SPEED_CHARACTER, lbl4Player.getY());
-					System.out.println("Player = " + lbl4Player.getX());
 					break;
 				case KeyEvent.VK_RIGHT:
+					if (lbl4Player.getX() > Board.WIDTH - lbl4Player.getWidth()) {
+						lbl4Player.setLocation(lbl4Player.getX() - 20, lbl4Player.getY());
+					}
 					lbl4Player.setLocation(lbl4Player.getX() + Board.SPEED_CHARACTER, lbl4Player.getY());
 					break;
 				}
-				lbl4Player.setLocation(lbl4Player.getX(), lbl4Player.getY());
+				
 			}
 		});
 		this.requestFocus();
