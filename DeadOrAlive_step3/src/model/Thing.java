@@ -52,10 +52,12 @@ public abstract class Thing {
 		this.score = score;
 	}
 
+	/** 속도값에 따라 yPos를 변화시킴 */
 	public void fly(int period) {
 		yPos += Board.SPEED_BOMB_APPLE;
 	}
 	
+	/** 보드 높이 범위 안에서 떨어지는 중일때 true 반환*/
 	public boolean isInSky() {
 		return yPos < Board.HEIGHT ;
 	}
