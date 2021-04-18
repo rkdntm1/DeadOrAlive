@@ -51,14 +51,14 @@ public class PanelOfBoard extends JPanel {
 
 		// 사과 아이콘 설정
 		lbl4Apple.setIcon(AppleIcon); // 아이콘 설치
-		lbl4Apple.setLocation((int) ((Board.WIDTH - lbl4Apple.getWidth()) * Math.random()), 0); // 아이콘 초기 위치 설정 보드 범위 내
 		lbl4Apple.setSize(100, 100); // 아이콘 size 정의
+		lbl4Apple.setLocation((int) ((Board.WIDTH - lbl4Apple.getWidth()) * Math.random()), 0); // 아이콘 초기 위치 설정 보드 범위 내
 		this.add(lbl4Apple);
 
 		// 폭탄 아이콘 설정
 		lbl4Bomb.setIcon(BombIcon); // 아이콘 설치
-		lbl4Bomb.setLocation((int) ((Board.WIDTH - lbl4Bomb.getWidth()) * Math.random()), 0); // 아이콘 초기 위치 설정 보드 범위 내 랜덤
 		lbl4Bomb.setSize(100, 100); // 아이콘 size 정의
+		lbl4Bomb.setLocation((int) ((Board.WIDTH - lbl4Bomb.getWidth()) * Math.random()), 0); // 아이콘 초기 위치 설정 보드 범위 내 랜덤
 		this.add(lbl4Bomb);
 
 		// 게임 오버 아이콘 설정
@@ -66,10 +66,10 @@ public class PanelOfBoard extends JPanel {
 		lbl4Gameover.setLocation(Board.WIDTH * 2, Board.HEIGHT * 2);
 		lbl4Gameover.setSize(400, 300);
 		this.add(lbl4Gameover);
-		
+
 		// 좌우 움직일 수 있도록 keyListener 장착
 		this.addKeyListener(new KeyAdapter() {
-			
+
 			public void keyPressed(KeyEvent e) {
 				switch (e.getKeyCode()) {
 				case KeyEvent.VK_LEFT:
@@ -103,7 +103,7 @@ public class PanelOfBoard extends JPanel {
 				// 사과와 충돌이 일어났을 경우 점수 추가
 				if (checkEatApple(lbl4Apple.getX(), lbl4Apple.getY(), lbl4Player.getX(), lbl4Player.getY())) {
 					lbl4Apple.setLocation((int) ((Board.WIDTH - lbl4Apple.getWidth()) * Math.random()), 0);
-					// 점수 추가 
+					// 점수 추가
 					basicScore += 3;
 					lbl4Score.setText("" + basicScore);
 				} else
@@ -119,7 +119,7 @@ public class PanelOfBoard extends JPanel {
 					// 점수 잃기
 					basicScore -= 5;
 					lbl4Score.setText("" + basicScore);
-					// 점수가 0점 밑으로 떨어졌을경우 게임 중지					
+					// 점수가 0점 밑으로 떨어졌을경우 게임 중지
 					if (basicScore < 0) {
 						timer.stop();
 						lbl4Gameover.setLocation(Board.WIDTH / 2 - lbl4Gameover.getWidth() / 2,
@@ -128,7 +128,7 @@ public class PanelOfBoard extends JPanel {
 				} else
 					lbl4Bomb.setLocation(lbl4Bomb.getX(), lbl4Bomb.getY() + 10);
 			}
-		});		
+		});
 		timer.start();
 	}
 
