@@ -10,9 +10,8 @@ import javax.swing.JPanel;
 import model.Board;
 
 public class DeadOrAliveWin extends JFrame {
-	private Board board;
 	
-	public DeadOrAliveWin(Board board) {
+	public DeadOrAliveWin() {
 		this.setTitle("DeadOrAlive");
 		this.setSize(Board.WIDTH, Board.HEIGHT);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -24,7 +23,7 @@ public class DeadOrAliveWin extends JFrame {
 		this.add(pnl4Score, BorderLayout.NORTH);
 
 		// 중단 - 게임이 돌아갈 보드판넬 배치
-		this.add(new PanelOfBoard(board), BorderLayout.CENTER);
+		this.add(new PanelOfBoard(), BorderLayout.CENTER);
 
 		this.setVisible(true);
 	}
