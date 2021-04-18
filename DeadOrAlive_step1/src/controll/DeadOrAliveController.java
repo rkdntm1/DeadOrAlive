@@ -26,13 +26,8 @@ public class DeadOrAliveController {
 		Bomb bomb = new Bomb(Board.SPEED_BOMB_APPLE, BOMB_SCORE ); // 폭탄 만들기(속도, 점수)
 		Apple apple = new Apple(Board.SPEED_BOMB_APPLE, APPLE_SCORE); // 사과 만들기(속도, 점수)
 		
-		// 보드에 캐릭터 폭탄 사과를 넣어주자. 
-		board.load(player);
-		board.load(bomb);
-		board.load(apple);
-		
+		// 화면 띄워보기 
 		new DeadOrAliveWin();
-		
 	}
 
 	public static void main(String[] args) {
