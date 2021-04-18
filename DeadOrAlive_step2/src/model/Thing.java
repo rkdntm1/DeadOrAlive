@@ -11,7 +11,6 @@ public abstract class Thing {
 	private int score;
 	
 	/** 플레이어의 상위클래스 생성자 */
-
 	public Thing(int xPos, int yPos, double velocity, int score) {
 		this.xPos = xPos;
 		this.yPos = yPos;
@@ -26,7 +25,6 @@ public abstract class Thing {
 		this.velocity = velocity;
 		this.score = score;
 	}
-
 	
 	public int getxPos() {
 		return xPos;
@@ -43,5 +41,4 @@ public abstract class Thing {
 	public void setyPos(int yPos) {
 		this.yPos = yPos;
 	}
-	
 }

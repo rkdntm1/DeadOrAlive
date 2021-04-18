@@ -21,6 +21,7 @@ import model.Player;
 public class PanelOfBoard extends JPanel {
 	private JLabel lbl4Score;
 	private JButton btnStart;
+	private Player player;
 
 	// 캐릭터 아이콘 가져오기
 	ImageIcon PlayerIcon = new ImageIcon("Character.png");
@@ -28,12 +29,12 @@ public class PanelOfBoard extends JPanel {
 	// 아이콘을 담을 라벨 만들기
 	JLabel lbl4Player = new JLabel();
 
+	// 점수판 라벨에 넣을 기본 점수 설정
 	private int basicScore = DeadOrAliveController.BASIC_SCORE;
-	private Player player;
+	
 
 	PanelOfBoard(Player player) {
 		this.player = player;
-
 		this.setLayout(null); // 어디든 만들어지도록 레이아웃 null\
 
 		// 플레이어 아이콘설정
@@ -64,5 +65,4 @@ public class PanelOfBoard extends JPanel {
 		this.requestFocus();
 		this.setFocusable(true);
 	}
-
 }

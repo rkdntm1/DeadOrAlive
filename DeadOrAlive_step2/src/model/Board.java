@@ -17,9 +17,6 @@ public class Board {
 	public static final int SPEED_PLAYER = WIDTH / TIME_CHARACTER;
 
 	private List<Thing> things = new ArrayList<>();
-	private Player player;
-	private Apple apple;
-	private Bomb bomb;
 	
 	public void load(Thing thing) { // player, bomb, apple을 통칭시켜서 기억
 		things.add(thing);
