@@ -32,14 +32,13 @@ public class PanelOfBoard extends JPanel implements ActionListener {
 	JLabel lbl4Bomb = new JLabel();
 	JLabel lbl4Gameover = new JLabel();
 
-	
 	private Timer timer;
 	private int basicScore = DeadOrAliveController.BASIC_SCORE;
 
 	PanelOfBoard(Board board, JLabel lbl4Score, JButton btnStart) {
 		// 버튼을 눌렀을때 리스너가 실행되도록
 		btnStart.addActionListener(this);
-		
+
 		// 점수를 담아줄 라벨
 		this.lbl4Score = lbl4Score;
 		lbl4Score.setText("" + DeadOrAliveController.BASIC_SCORE);
@@ -55,14 +54,14 @@ public class PanelOfBoard extends JPanel implements ActionListener {
 
 		// 사과 아이콘 설정
 		lbl4Apple.setIcon(AppleIcon); // 아이콘 설치
-		lbl4Apple.setLocation((int) ((Board.WIDTH - lbl4Apple.getWidth()) * Math.random()), 0); // 아이콘 초기 위치 설정 보드 범위 내
 		lbl4Apple.setSize(100, 100); // 아이콘 size 정의
+		lbl4Apple.setLocation((int) ((Board.WIDTH - lbl4Apple.getWidth()) * Math.random()), 0); // 아이콘 초기 위치 설정 보드 범위 내
 		this.add(lbl4Apple);
 
 		// 폭탄 아이콘 설정
 		lbl4Bomb.setIcon(BombIcon); // 아이콘 설치
-		lbl4Bomb.setLocation((int) ((Board.WIDTH - lbl4Bomb.getWidth()) * Math.random()), 0); // 아이콘 초기 위치 설정 보드 범위 내 랜덤
 		lbl4Bomb.setSize(100, 100); // 아이콘 size 정의
+		lbl4Bomb.setLocation((int) ((Board.WIDTH - lbl4Bomb.getWidth()) * Math.random()), 0); // 아이콘 초기 위치 설정 보드 범위 내 랜덤
 		this.add(lbl4Bomb);
 
 		// 게임 오버 아이콘 설정
@@ -72,7 +71,7 @@ public class PanelOfBoard extends JPanel implements ActionListener {
 		this.add(lbl4Gameover);
 
 		// 좌우 움직일 수 있도록 keyListener 장착
-		
+
 	}
 
 	/**
@@ -109,7 +108,7 @@ public class PanelOfBoard extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+
 		this.addKeyListener(new KeyAdapter() {
 			public void keyPressed(KeyEvent e) {
 				switch (e.getKeyCode()) {
@@ -128,11 +127,11 @@ public class PanelOfBoard extends JPanel implements ActionListener {
 				}
 			}
 		});
-		
+
 		this.requestFocus();
 		this.setFocusable(true);
-		
-		timer = new Timer(30, new ActionListener() {
+
+		timer = new Timer(15, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// 사과가 범위 벗어났을 경우 랜덤한 x좌표에서 다시 생성

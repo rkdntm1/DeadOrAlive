@@ -28,10 +28,10 @@ public class DeadOrAliveWin extends JFrame {
 		lbl4Score.setFont(s);
 		pnl4Score.add(lbl4Score);
 		
+		this.add(pnl4Score, BorderLayout.NORTH);
+		
 		JButton btnStart = new JButton("Game Start");
 		pnl4Score.add(btnStart);
-		
-		this.add(pnl4Score, BorderLayout.NORTH);
 
 		// 중단 - 게임이 돌아갈 보드판넬 배치
 		this.add(new PanelOfBoard(board, lbl4Score, btnStart), BorderLayout.CENTER);
