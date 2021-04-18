@@ -43,14 +43,14 @@ public class PanelOfBoard extends JPanel {
 
 		// 사과 아이콘 설정
 		lbl4Apple.setIcon(AppleIcon); // 아이콘 설치
-		lbl4Apple.setLocation((int) ((Board.WIDTH - lbl4Apple.getWidth()) * Math.random()) , 0); // 아이콘 초기 위치 설정 보드 범위 내
 		lbl4Apple.setSize(100, 100); // 아이콘 size 정의
+		lbl4Apple.setLocation((int) ((Board.WIDTH - lbl4Apple.getWidth()) * Math.random()) , 0); // 아이콘 초기 위치 설정 보드 범위 내
 		this.add(lbl4Apple);
 
 		// 폭탄 아이콘 설정
 		lbl4Bomb.setIcon(BombIcon); // 아이콘 설치
-		lbl4Bomb.setLocation((int) ((Board.WIDTH - lbl4Bomb.getWidth()) * Math.random()), 0); // 아이콘 초기 위치 설정 보드 범위 내 랜덤
 		lbl4Bomb.setSize(100, 100); // 아이콘 size 정의
+		lbl4Bomb.setLocation((int) ((Board.WIDTH - lbl4Bomb.getWidth()) * Math.random()), 0); // 아이콘 초기 위치 설정 보드 범위 내 랜덤
 		this.add(lbl4Bomb);
 
 		// 좌우 움직일 수 있도록 keyListener 장착
